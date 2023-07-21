@@ -34,6 +34,43 @@
             width: 200px;
             height: 50px;
         }
+        #btn3 {
+            padding:10px;
+            
+        }
+        /* btn3에 마우스를 올렸을 때 그 형제 box가 변경된다 */
+        #btn3:hover ~ .box { /* ~ 형제들중 , + 인접한형제 */
+            background: palevioletred;
+            /* transform:속성(값) 속성(값) */
+            /* transform 속성은 자식,자손에게도 영향을 준다. */
+            /* transform: scaleX(2)scaleY(0.5); */ /* 1=100% */
+            /* transform:rotate(-60deg) scale(1.5); */
+            /* transform: skew(60deg, -20deg); */
+            /* transform: skewY(60deg); */
+            transform: translateX(200px);
+        }
+        .box {
+            width:100px; height: 100px;
+            background: yellow;
+            transition: transform 0.5s;
+        }
+        #btn4 {
+
+        }
+        #btn4:hover ~.target {
+            color:red;
+            transform: rotate(360deg);
+            transform: scale(2) rotateX(60deg) translateX(300px);
+            transform-origin: left top; /* 중심축바꾸기 */
+        }
+        .target {
+            background: pink;
+            display: inline-block;
+            color: rgb(255, 255, 255); font-size: 5rem; border-radius: 50%; padding: 20px;
+            /* transition: transform; */
+            transition: all 2s ;
+        }
+
     </style>
 </head>
 <body>
@@ -44,8 +81,16 @@
         <li>
             <button type="button" id="btn2">animation2</button> <!-- 버튼타입 꼭 전송과 취소가 아니고 범용적으로 쓸때 bu -->
         </li>
-        <li></li>
-        <li></li>
+        <li>
+            <button id="btn3" type="button">transform1</button>
+            <hr>
+            <div class="box">box</div>
+        </li>
+        <li>
+            <button id="btn4" type="button">transform2</button>
+            <hr>
+            <span class="target">적용대상</span>
+        </li>
         <li></li>
     </ul>
 </body>
